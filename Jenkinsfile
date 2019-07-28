@@ -25,9 +25,33 @@ pipeline {
         sh 'echo 2'
       }
     }
-    stage('3') {
+    stage('test') {
+      parallel {
+        stage('sonartest') {
+          steps {
+            sh 'echo sonartest'
+          }
+        }
+        stage('findbugs') {
+          steps {
+            sh 'echo findbugs'
+          }
+        }
+        stage('robotest') {
+          steps {
+            sh 'echo robottest'
+          }
+        }
+        stage('uinttest') {
+          steps {
+            sh 'echo unittest'
+          }
+        }
+      }
+    }
+    stage('deploy') {
       steps {
-        sh 'echo 3'
+        sh 'echo delpoy'
       }
     }
   }
