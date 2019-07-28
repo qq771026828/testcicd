@@ -55,5 +55,10 @@ pipeline {
         sh 'echo delpoy'
       }
     }
+    stage('uitest') {
+      steps {
+        sh 'echo uitest'
+      }
+    }
   }
 }
