@@ -3,9 +3,10 @@ pipeline {
   stages {
     stage('1') {
       parallel {
-        stage('1') {
+        stage('checkout') {
           steps {
             sh 'echo 1'
+            git(url: 'https://github.com/iluwatar/java-design-patterns.git/', branch: 'master', changelog: true, credentialsId: '6ffcb27e0b0f43e727d3f02c4328b00095f54d62')
           }
         }
         stage('1.1') {
